@@ -1,0 +1,50 @@
+mixin modalMenu
+    .modal.fade#navbarModal 
+        .modal-dialog 
+            .modal-content 
+                .modal-header
+                    a.navbar-brand(href="#") 
+                        p the
+                            span movie
+                        span &copy;
+                    button.close(data-dismiss="modal")
+                        span &times;
+                .modal-body
+                    ul#listMenu.accordion
+                        li
+                            a.d-flex.justify-content-between(href="#collapse1" data-toggle="collapse") home
+                                i.fas.fa-caret-down 
+                        li.collapse.menu-collapse#collapse1(data-parent="#listMenu")
+                            ul
+                                li
+                                    a(href="#") 1-the parallax
+                                li
+                                    a(href="#") 2-the slider
+                                li
+                                    a(href="#") 3-trailer
+                                li
+                                    a(href="#") 4-gallery
+                                li
+                                    a(href="#") 5-fullscreen 
+                        li
+                            a(href="#") about
+                        li
+                            a(href="#") trailers
+                        li
+                            a(href="#") cast
+                        li
+                            a.d-flex.justify-content-between(href="#collapse2" data-toggle="collapse") release dates
+                                i.fas.fa-caret-down
+                        li.collapse.menu-collapse#collapse2(data-parent="#listMenu")
+                            ul 
+                                li
+                                    a(href="#") calendar
+                                li
+                                    a(href="#") time 
+                        li
+                            a(href="#") gallery 
+                        li
+                            a(href="#") blog 
+                        li
+                            a(href="#") contact
+        

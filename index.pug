@@ -1,0 +1,230 @@
+extends pug/layout
+
+block main
+        include pug/database
+        include pug/mixin
+        section.poster 
+            .container-fluid.position-relative.poster__img   
+                img(src="./img/bg-1.png")
+                .poster__img-name.position-absolute 
+                    h1
+                        span the movie
+                        span film
+                .poster__img-mountain.position-absolute  
+                    img(src="img/bg-2.png")
+                each n,index in Array(8)
+                    .position-absolute.poster__img-cloud(data-count=index)
+                        img(src="img/cloud-layer-1.png")
+        section.about
+            .container
+                .text-center.about__title 
+                    i.fas.fa-align-center 
+                    h3.mt-3.text-uppercase.font-weight-bold about the movie
+                .row.mt-5 
+                    .py-5.col-sm-12.col-lg-4.about__img 
+                        img(src="img/ab-m-1.png")
+                    .col-sm-12.col-lg-8.about__info 
+                        h4.text-uppercase.font-weight-bold.about__info-sub fantastic,history,war 
+                        h1.mt-3.text-capitalize.font-weight-bold.about__info-title the beginning of new life 
+                        .mt-5.about__info-list
+                            .d-flex.align-items-center.about__info-item
+                                p 
+                                    i.fas.fa-play-circle.mr-3
+                                    h4.text-capitalize.text-secondary.font-weight-bold production: 
+                                h5.ml-5.text-muted January 15, 2006 - France, United States
+                            .d-flex.align-items-center.about__info-item
+                                p 
+                                    i.fas.fa-clock.mr-3
+                                    h4.text-capitalize.text-secondary.font-weight-bold time: 
+                                h5.ml-5.text-muted 2 hours, 40 minutes
+                            .d-flex.align-items-center.about__info-item
+                                p 
+                                    i.fas.fa-language.mr-3
+                                    h4.text-capitalize.text-secondary.font-weight-bold Language: 
+                                h5.ml-5.text-muted English, Spanish
+                            .d-flex.align-items-center.about__info-item
+                                p 
+                                    i.fas.fa-globe-americas.mr-3
+                                    h4.text-capitalize.text-secondary.font-weight-bold country: 
+                                h5.ml-5.text-muted France, England, United States
+                            .d-flex.align-items-center.about__info-item
+                                p 
+                                    i.fas.fa-briefcase.mr-3
+                                    h4.text-capitalize.text-secondary.font-weight-bold company: 
+                                h5.ml-5.text-muted Sxop, TLVR, Punctpro
+                            .d-flex.align-items-center.about__info-item
+                                p 
+                                    i.fas.fa-check-square.mr-3
+                                    h4.text-capitalize.text-secondary.font-weight-bold Distributor: 
+                                h5.ml-5.text-muted O Production 
+                        h4.mt-5.text-muted.about__info-decription  Nullam imperdiet, sem at fringilla lobortis, sem nibh fringilla nibh, id gravida mi purus sit amet erat. Ut dictum nisi massa, vitae pulvinar metus scelerisque in. Nunc sit amet purus at eros semper mattis. Donec a neque a velit dignissim euismod. Nulla facilisi. Phasellus pharetra felis mollis egestas suscipit. Integer in quam orci. Donec ornare aliquet diam nec malesuada.Sed iaculis malesuada aliquam. Nullam eu lobortis magna, nec accumsan orci. Cras a faucibus velit. Donec vehicula accumsan lectus, et venenatis eros ultrices et.  
+                        h4.mt-5.text-muted.about__info-decription  Integer condimentum lorem in mattis feugiat. Integer nibh risus, lacinia a porta sed, sagittis a ante. Morbi sed vulputate urna. Morbi efficitur urna ut justo efficitur, non mollis ligula fermentum. Aenean vel velit a nibh imperdiet gravida non non augue. Curabitur dui nisl, tempor at feugiat maximus, blandit id leo. In hac habitasse platea dictumst. Proin interdum semper tellus vel faucibus. Cras a faucibus velit. Donec vehicula accumsan lectus.
+        section.trailer
+            .container
+                .text-center.about__title 
+                    i.fas.fa-video 
+                    h3.mt-3.text-uppercase.font-weight-bold.text-white trailer 
+                .pt-5.accordion#trailerAccordion 
+                    button.btn.btn-dark.w-100.py-2.py-lg-4(data-toggle="collapse" data-target="#youtube1" aria-expanded="true") 
+                        h3.text-uppercase.font-weight-bold trailer 1 
+                    iframe( id="youtube1" class="w-100 mt-5 collapse show "  data-parent="#trailerAccordion" src="https://www.youtube.com/embed/bTqVqk7FSmY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)  
+                    button.btn.btn-dark.w-100.py-2.py-lg-4(data-toggle="collapse" data-target="#youtube2") 
+                        h3.text-uppercase.font-weight-bold trailer 2
+                    iframe( id="youtube2" class="w-100 mt-5 collapse" data-parent="#trailerAccordion"  src="https://www.youtube.com/embed/D4b91iPClmk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+        section.director
+            .container
+                .text-center.about__title 
+                    i.fas.fa-user-circle 
+                    h3.mt-3.text-uppercase.font-weight-bold about the movie 
+                +loadPeople(directors)
+        section.bg-light.director
+            .container
+                .text-center.about__title 
+                    i.fas.fa-users 
+                    h3.mt-3.text-uppercase.font-weight-bold about the movie 
+                +loadPeople(actors)
+        section.logo 
+            .container 
+                .row 
+                    .col-6.col-sm-6.col-md-4.col-lg-2 
+                        img(src="img/logo-1.png")
+                    .col-6.col-sm-6.col-md-4.col-lg-2 
+                        img(src="img/logo-2.png")
+                    .col-6.col-sm-6.col-md-4.col-lg-2 
+                        img(src="img/logo-3.png")
+                    .col-6.col-sm-6.col-md-4.col-lg-2 
+                        img(src="img/logo-4.png")
+                    .col-6.col-sm-6.col-md-4.col-lg-2 
+                        img(src="img/logo-5.png")
+                    .col-6.col-sm-6.col-md-4.col-lg-2 
+                        img(src="img/logo-6.png")
+        section.release 
+            .container.text-white
+                .text-center.about__title 
+                    i.fa.fa-calendar-alt 
+                    h3.mt-3.text-uppercase.font-weight-bold.text-white release dates
+                each n in Array(5)
+                    .row.text-center.text-sm-center.text-lg-left.align-items-start.release__info
+                        .col-12.col-sm-12.col-lg-2.release__info-date
+                            h1.font-weight-bold 22
+                            h2.text-uppercase june
+                            h2.font-weight-bold.-small 2017
+                        .col-12.col-sm-12.col-lg-6.release__info-sub 
+                            h1.text-capitalize At Cinemall – Walking Street, Cross City, Las Vegas, Nevada
+                            h4.mt-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        .col-12.col-sm-12.col-lg-4.release__info-btn
+                            button.btn.btn-outline-danger.py-3.px-5.d-block.mx-auto 
+                                i.fas.fa-credit-card
+                                span.text-uppercase buy ticket
+        section.customer
+            .container
+                .text-center.about__title 
+                    i.fas.fa-star 
+                    h3.mt-3.text-uppercase.font-weight-bold reviews 
+                +loadCustomer(customers) 
+        section.icon 
+            .container 
+                .row.text-center 
+                    .col-6.col-sm-6.col-md-4.col-lg-2.mt-5.icon__item
+                        .icon__item-box.mx-auto
+                            .icon__item-sub
+                                i.far.fa-star.rounded-circle
+                        h3.text-muted.mt-3 234 Awards 
+                    .col-6.col-sm-6.col-md-4.col-lg-2.mt-5.icon__item
+                        .icon__item-box.mx-auto
+                            .icon__item-sub
+                                i.fab.fa-imdb.rounded-circle
+                        h3.text-muted.mt-3 9.2 IMDb
+                    .col-6.col-sm-6.col-md-4.col-lg-2.mt-5.icon__item
+                        .icon__item-box.mx-auto
+                            .icon__item-sub
+                                i.far.fa-eye.rounded-circle
+                        h3.text-muted.mt-3 100M Audience
+                    .col-6.col-sm-6.col-md-4.col-lg-2.mt-5.icon__item
+                        .icon__item-box.mx-auto
+                            .icon__item-sub
+                                i.far.fa-comment-dots.rounded-circle
+                        h3.text-muted.mt-3 300 Review
+                    .col-6.col-sm-6.col-md-4.col-lg-2.mt-5.icon__item
+                        .icon__item-box.mx-auto
+                            .icon__item-sub
+                                i.far.fa-money-bill-alt.rounded-circle
+                        h3.text-muted.mt-3 500M Budget
+                    .col-6.col-sm-6.col-md-4.col-lg-2.mt-5.icon__item
+                        .icon__item-box.mx-auto
+                            .icon__item-sub
+                                i.fas.fa-trophy.rounded-circle
+                        h3.text-muted.mt-3 Best of the Gloria
+        section.bg-light.gallery 
+            .container-fluid
+                .text-center.about__title 
+                    i.fas.fa-camera 
+                    h3.mt-3.text-uppercase.font-weight-bold gallery 
+                +loadGallery(gallery)
+        section.blog 
+            .container
+                .text-center.about__title 
+                    i.fas.fa-bars 
+                    h3.mt-3.text-uppercase.font-weight-bold blog 
+                +loadBlog(blogs)
+                button.btn.btn-outline-secondary.d-block.py-3.px-5.mt-5.mx-auto
+                    i.fas.fa-bars.mr-3 
+                    span.text-uppercase all post
+        section.contact.bg-light
+            .container-fluid
+                .row 
+                    .col-12.col-sm-12.col-lg-6.py-5.contact__message 
+                        .text-center.about__title 
+                            i.fas.fa-camera 
+                            h3.mt-3.text-uppercase.font-weight-bold.text-white send message 
+                        .d-flex.flex-column.align-items-center.contact__input 
+                            input.w-100.mt-5(type="text" placeholder="Name")
+                            input.w-100.mt-5(type="text" placeholder="Email")
+                            input.w-100.mt-5(type="text" placeholder="Subject")
+                            textarea.w-100.mt-5(placeholder="Message")
+                            button.btn.btn-outline-danger.text-uppercase.mt-5
+                                h3 send message 
+                    .col-12.col-sm-12.col-lg-6.py-5
+                        .text-center.about__title 
+                            i.fas.fa-map
+                            h3.mt-3.text-uppercase.font-weight-bold send message 
+                        .d-flex.flex-column.align-items-center.align-items-sm-center.align-items-md-start.mt-5.contact__info
+                            h4.mt-4 
+                                i.fas.fa-map-marker-alt
+                                span.text-secondary Walking Street, Los Angeles, California, USA
+                            h4.mt-4 
+                                i.fas.fa-envelope
+                                span.text-secondary themovie@gloriathemes.com 
+                            h4.mt-4 
+                                i.fas.fa-phone-alt
+                                span.text-secondary +00 698 612 223
+                            h4.mt-4 
+                                i.fas.fa-fax
+                                span.text-secondary +00 698 612 223
+                            ul.d-flex.text-center.mt-3
+                                li 
+                                    i.fab.fa-facebook-f
+                                li 
+                                    i.fab.fa-twitter
+                                li 
+                                    i.fab.fa-google-plus-g
+                                li 
+                                    i.fab.fa-instagram
+                                li 
+                                    i.fab.fa-youtube
+                            h5.mt-5.text-secondary.text-center.text-sm-center.text-md-left Sed tincidunt felis eget aliquet interdum. Sed leo nisi, ornare vitae consequat a, molestie nec urna. In turpis nisl, eleifend a placerat vel, viverra et diam. Morbi varius enim id neque mollis rutrum. Vivamus at enim eleifend, aliquam augue nec, imperdiet ipsum. Maecenas maximus mauris a tortor venenatis, in bibendum leo semper. Cras facilisis vehicula tortor eu faucibus. Morbi lacus justo, sodales at posuere nec, molestie a nunc. Fusce eget leo sit amet est feugiat viverra ac vel magna. Fusce eget leo sit amet est feugiat viverra ac vel magna. Sed tincidunt felis eget aliquet interdum.
+        section.footer
+            .container.d-flex.flex-column.flex-sm-column.flex-lg-row.justify-content-between.align-items-center
+                a.navbar-brand(href="#") 
+                    p the
+                        span.text-white movie
+                    span.text-white &copy; 
+                h3.text-white &copy; Copyright 2017 The Movie - All rights Reserved.
+
+
+
+
+        script(type="text/javascript" src="./bootstrap-4.4.1-dist/js/jquery-3.4.1.min.map")
+        script(type="text/javascript" src="./bootstrap-4.4.1-dist/js/bootstrap.min.js")
+        
+    

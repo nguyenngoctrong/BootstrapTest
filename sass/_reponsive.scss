@@ -1,0 +1,214 @@
+@import 'variable';
+
+@media all and (max-width:$breakpoint-sm){
+    iframe{
+        height: 270px;
+    }
+    .poster{
+        &__img{
+            &-name{
+                top:20%;
+                span{
+                    font-size: 5rem;
+                    &:nth-child(2){
+                    margin-top: -2rem;
+                }
+                }
+            }
+        }
+        
+    }
+}
+@media all and (min-width:$breakpoint-sm){
+    iframe{
+        height: 300px;
+    }
+    #navbarModal{
+    .modal-dialog{
+        max-width: 70%;
+        margin: initial;
+    }
+}
+
+}
+@media all and (min-width:$breakpoint-md){
+    .about{
+        &__title{
+            i{
+                color: $color-red;
+                font-size: 3.5rem;
+            }
+            h3{
+                font-size: 3.5rem;
+            }
+        }
+        &__info{
+            &-title{
+                font-size: 3rem;
+            }
+        }
+    }
+    .blog{
+        &__img{
+            height: 20rem;
+            &-box{
+                width: 17rem;
+            }
+        }
+    }
+    
+}
+@media all and (min-width:$breakpoint-lg){
+    iframe{
+        height: 500px;
+    }
+    .release{
+        &__info{
+            &-sub{
+                padding: initial;
+            }
+        }
+    }
+    header{
+        position: absolute;
+        background-color: initial;
+        
+        background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);
+        .navbar{
+            background-color: initial;
+            padding: 3rem 0;
+        }
+        .navbar-brand{
+            
+            p{
+                font-size: 5rem;
+                span{
+                    color:$bg-white;
+                }
+            }
+            >span{
+                font-size: 2rem;
+                color: $bg-white;
+                transform: translate(70%,40%);
+                font-weight: initial;
+            }
+
+            
+        }
+        .navbar-light{
+            .navbar-nav{
+                margin: 0 auto;
+                .nav-link{
+                    color: $bg-white;
+                    font-size: 1.4rem;
+                    font-weight: bolder;
+                }
+                .nav-item{
+                    margin-left: 2rem;
+                }
+                .dropdown-item{
+                    font-size: 1.3rem;
+                    text-transform: uppercase;
+                    font-weight: 600;
+
+                }
+                .show>.nav-link{
+                    color: $color-red;
+                }
+                .nav-link:hover{
+                    color: $color-red;
+                }
+
+            }
+            
+            
+        }
+        
+    }
+    .about{
+        &__img{
+            transform: translateY(-3rem);
+        }
+    }
+    .trailer{
+        #trailerAccordion{
+            padding-top:10rem !important;
+            position: relative;
+            margin-top: 4rem;
+            button:nth-child(1){
+                position: absolute;
+                top: 0;
+                left: 45%;
+                width: 20rem !important;
+                transform: translateX(-100%);
+
+            }
+            button:nth-child(3){
+                position: absolute;
+                top: 0;
+                right: 45%;
+                width: 20rem !important;
+                transform: translateX(100%);
+
+            }
+        }
+    }
+    .poster{
+        margin-top: initial;
+        padding: initial;
+        &__img{
+            height: 120vh;
+            &-name{
+                top:20%;
+                span{
+                    font-size: 10rem;
+                    &:nth-child(2){
+                    margin-top: -2rem;
+                }
+                }
+            }
+            &-mountain{
+                width: 1044px;
+                bottom: 10%;
+            }
+        }
+    }
+
+    .people{
+        &__decription{
+            h1{
+                font-size: 1.8rem;
+            }
+            h2{
+                font-size: 1.5rem;
+            }
+            i{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .customer{
+        .carousel-item{
+            h5{
+                font-size: 1.7rem;
+            }
+        }
+    }
+    .blog{
+        &__img{
+            height: 30rem;
+            &-box{
+                width: 25rem;
+            }
+        }
+    }
+    
+    
+    
+}
+@media all and (min-width:$breakpoint-xl){
+    iframe{
+        height: 500px;
+    }
+
+}

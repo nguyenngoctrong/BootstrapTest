@@ -1,0 +1,54 @@
+mixin loadPeople(people)
+    .row.pt-5.people
+        each p in people
+            .col-sm-12.col-md-6.col-lg-3.mt-5
+                .overflow-hidden.position-relative.people__img 
+                    img(src=p.Img)
+                    .w-75.position-absolute.d-flex.flex-column.align-items-end.people__decription 
+                        h1.text-white.font-weight-bold.text-uppercase=p.Name
+                        h2.text-white.font-weight-bold #{p.Type}
+                        a(href="#") 
+                            i.fa.fa-search.p-4.mt-5 
+                        a(href="#") 
+                            i.fa.fa-link.p-4.mt-4
+                p.mt-4.people__summary 
+                    h4.text-secondary.font-weight-bold.d-inline #{p.BirthDay} 
+                    h4.text-muted.d-inline #{p.Summary}
+mixin loadCustomer(customers)
+    .pt-5.carousel.slide#carouselCustomer(data-ride="carousel" data-interval="false")
+                    .carousel-inner 
+                        each cus,index in customers
+                            .carousel-item.text-center(class=index==0?"active":"")
+                                img.mx-auto.d-block.rounded-circle(src=cus.Img)
+                                h5.mt-5.text-secondary=cus.Decription
+                    ol.mt-5.carousel-indicators
+                        -for(let i=0 ;i<customers.length;i++)
+                            li.rounded-circle(class=i==0?"active":"" data-target="#carouselCustomer" data-slide-to=i)
+                                
+    
+mixin loadGallery(gallery)
+    .row.mt-5 
+        each gl in gallery
+            .col-12.col-sm-12.col-lg-2.gallery__item 
+                img(src=gl)
+                i.fas.fa-search
+
+mixin loadBlog(blogs)
+    .row 
+        each bl in blogs
+            .col-12.col-sm-12.col-md-4.mt-5.blog__item
+                .position-relative.blog__img 
+                    img(src=bl.Img)
+                    .position-absolute.d-flex.justify-content-between.flex-md-column.flex-lg-row.blog__img-box
+                        h4 
+                            i.fas.fa-folder-open 
+                            span #{bl.Type}
+                        h4 
+                            i.fas.fa-calendar-alt 
+                            span #{bl.Time}
+                h3.font-weight-bold.mt-4 #{bl.Title}
+                h5.text-secondary.mt-4 #{bl.Decription}
+    
+
+
+    

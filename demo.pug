@@ -1,0 +1,26 @@
+doctype
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel="stylesheet" href="fontawesome/css/all.css")
+        link(href="bootstrap-4.4.1-dist/css/bootstrap.min.css", rel="stylesheet")
+        link(rel="stylesheet" href="css/style.css")     
+        style.
+            .col-1{
+                flex:7.14285714%;
+            }
+        
+    body
+        .container-fluid 
+            .row 
+                - var n=1
+                while n < 15
+                    .col-1(class=n%2==0 ? "bg-info":"bg-success") 
+                        h2 #{n++}
+                    
+                
+                
+            
+        
